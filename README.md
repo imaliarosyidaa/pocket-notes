@@ -29,3 +29,11 @@ Tidak
 - Perencanaan topik belajar
 - Pengingat waktu belajar
 - Jadwal harian/mingguan
+
+### 4. Quick Notula
+
+- Fitur asisten cerdas untuk mencatat video youtube menjadi notulensi terstruktur secara instan.
+
+### 5. Deep Search
+
+- Menyajikan riset mendalam yang dirancang khusus untuk akademisi dan mahasiswa untuk menemukan referensi jurnal yang valid beserta ringkasanya

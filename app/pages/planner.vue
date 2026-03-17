@@ -9,7 +9,8 @@ import { format, isValid, parseISO, isSameDay } from "date-fns";
 import { useLocalStorage } from "@vueuse/core";
 
 // 1. PENYIMPANAN LOKAL
-const categories = ref(["Malowopati", "SIPADU NG", "Project Lain"]);
+const items = ref(["Work", "Personal", "Wishlist", "Birtday", "Study"]);
+const value = ref("Work");
 const allTasks = useLocalStorage<any[]>("my-tasks-list", []);
 
 // 2. STATE TANGGAL (Single Date, bukan Range)
@@ -36,12 +37,11 @@ const tasksOnSelectedDate = computed(() => {
   });
 });
 
-const existingTasks = computed(() =>
-  allTasks.value.map((t) => ({ id: t.id, label: t.taskName })),
-);
+const existingTasks = computed(() => allTasks.value.map((t) => t.taskName));
 
 const onCreateCategory = (query: string) => {
-  categories.value.push(query);
+  const newCategory = { label: query, value: query };
+  categories.value.push(newCategory);
   state.category = query;
 };
 
@@ -173,6 +173,7 @@ const deleteTask = (id: number) => {
             v-model="state.taskName"
             placeholder="Enter task name"
             size="lg"
+            class="w-full"
           />
         </UFormField>
 
@@ -180,17 +181,18 @@ const deleteTask = (id: number) => {
           <UFormField label="Category">
             <USelectMenu
               v-model="state.category"
-              :options="categories"
+              :items="items"
               placeholder="Select Category"
               creatable
               @create="onCreateCategory"
+              class="w-full"
             />
           </UFormField>
 
           <UFormField label="Sub-Task (Child) From">
             <USelectMenu
               v-model="state.parentTask"
-              :options="existingTasks"
+              :items="existingTasks"
               placeholder="Select Parent Task (Optional)"
               by="id"
               searchable
