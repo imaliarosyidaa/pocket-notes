@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
+import type { NavigationMenuItem } from "@nuxt/ui";
 
-const route = useRoute()
-const toast = useToast()
+const route = useRoute();
+const toast = useToast();
 
-const open = ref(false)
+const open = ref(false);
 
 const links = [
   [
@@ -32,10 +32,16 @@ const links = [
       to: "/planner",
       onSelect: () => (open.value = false),
     },
-        {
+    {
       label: "quick notula",
       icon: "i-lucide-signature",
       to: "/tools",
+      onSelect: () => (open.value = false),
+    },
+        {
+      label: "deep search",
+      icon: "i-lucide-binary",
+      to: "/deep-search",
       onSelect: () => (open.value = false),
     },
   ],
@@ -55,46 +61,55 @@ const links = [
   ],
 ] satisfies NavigationMenuItem[][];
 
-const groups = computed(() => [{
-  id: 'links',
-  label: 'Go to',
-  items: links.flat()
-}, {
-  id: 'code',
-  label: 'Code',
-  items: [{
-    id: 'source',
-    label: 'View page source',
-    icon: 'i-simple-icons-github',
-    to: `https://github.com/nuxt-ui-templates/dashboard/blob/main/app/pages${route.path === '/' ? '/index' : route.path}.vue`,
-    target: '_blank'
-  }]
-}])
+const groups = computed(() => [
+  {
+    id: "links",
+    label: "Go to",
+    items: links.flat(),
+  },
+  {
+    id: "code",
+    label: "Code",
+    items: [
+      {
+        id: "source",
+        label: "View page source",
+        icon: "i-simple-icons-github",
+        to: `https://github.com/nuxt-ui-templates/dashboard/blob/main/app/pages${route.path === "/" ? "/index" : route.path}.vue`,
+        target: "_blank",
+      },
+    ],
+  },
+]);
 
 onMounted(async () => {
-  const cookie = useCookie('cookie-consent')
-  if (cookie.value === 'accepted') {
-    return
+  const cookie = useCookie("cookie-consent");
+  if (cookie.value === "accepted") {
+    return;
   }
 
   toast.add({
-    title: 'We use first-party cookies to enhance your experience on our website.',
+    title:
+      "We use first-party cookies to enhance your experience on our website.",
     duration: 0,
     close: false,
-    actions: [{
-      label: 'Accept',
-      color: 'neutral',
-      variant: 'outline',
-      onClick: () => {
-        cookie.value = 'accepted'
-      }
-    }, {
-      label: 'Opt out',
-      color: 'neutral',
-      variant: 'ghost'
-    }]
-  })
-})
+    actions: [
+      {
+        label: "Accept",
+        color: "neutral",
+        variant: "outline",
+        onClick: () => {
+          cookie.value = "accepted";
+        },
+      },
+      {
+        label: "Opt out",
+        color: "neutral",
+        variant: "ghost",
+      },
+    ],
+  });
+});
 </script>
 
 <template>
@@ -112,7 +127,10 @@ onMounted(async () => {
       </template>
 
       <template #default="{ collapsed }">
-        <UDashboardSearchButton :collapsed="collapsed" class="bg-transparent ring-default" />
+        <UDashboardSearchButton
+          :collapsed="collapsed"
+          class="bg-transparent ring-default"
+        />
 
         <UNavigationMenu
           :collapsed="collapsed"

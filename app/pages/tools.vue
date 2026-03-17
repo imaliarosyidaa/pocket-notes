@@ -9,7 +9,7 @@ const handleSummarize = async () => {
     !videoUrl.value.includes("youtube.com") &&
     !videoUrl.value.includes("youtu.be")
   ) {
-    errorMsg.value = "Mohon masukkan URL YouTube yang valid";
+    errorMsg.value = "Please enter a valid YouTube URL";
     return;
   }
 
