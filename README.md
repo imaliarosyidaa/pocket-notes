@@ -1,75 +1,31 @@
-# Nuxt Minimal Starter
+# Nama Website
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Pocket Notes
 
-## Setup
+Pocket Notes adalah sebuah website yang membantu produktivitas mahasiswa dengan menyediakan alat-alat untuk
+mencatat catatan, pengingat tugas, manaejemen tugas dan lain sebagainya.
 
-Make sure to install dependencies:
+## Nama Tim
 
-```bash
-# npm
-npm install
+java.stis
 
-# pnpm
-pnpm install
+## Dengan Backend
 
-# yarn
-yarn install
+Ya
 
-# bun
-bun install
-```
+## Daftar Fitur Utama
 
-## Development Server
+### 1. Smart Notes
 
-Start the development server on `http://localhost:3000`:
+- Membuat catatan
+- Edit & hapus catatan
 
-```bash
-# npm
-npm run dev
+### 2. Task Manager
 
-# pnpm
-pnpm dev
+- Mengubah status tugas
 
-# yarn
-yarn dev
+### 3. Study Planner
 
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Perencanaan topik belajar
+- Pengingat waktu belajar
+- Jadwal harian/mingguan
