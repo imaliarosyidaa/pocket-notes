@@ -37,7 +37,7 @@ const localTodo = useLocalStorage<Task[]>("my-tasks-list", []);
 
 const data = ref<DataRecord[]>([]);
 
-// 2. Filter & Hitung Tugas per Periode
+// 2. Filter & Hitung Task per Periode
 watch(
   [() => props.period, () => props.range, localTodo],
   () => {
@@ -51,7 +51,7 @@ watch(
     )[props.period](props.range);
 
     data.value = dates.map((date) => {
-      // Hitung berapa banyak tugas yang dibuat/deadline pada tanggal ini
+      // Hitung berapa banyak Task yang dibuat/deadline pada tanggal ini
       const count = localTodo.value.filter((task) => {
         const taskDate = new Date(task.createdAt); // Bisa diganti ke task.deadline jika ingin grafik deadline
 
@@ -92,7 +92,7 @@ const xTicks = (i: number) => {
   return formatDate(data.value[i].date);
 };
 
-const template = (d: DataRecord) => `${formatDate(d.date)}: ${d.amount} Tugas`;
+const template = (d: DataRecord) => `${formatDate(d.date)}: ${d.amount} Task`;
 </script>
 
 <template>
@@ -110,7 +110,7 @@ const template = (d: DataRecord) => `${formatDate(d.date)}: ${d.amount} Tugas`;
           </p>
           <p class="text-3xl text-highlighted font-semibold">
             {{ totalTasks }}
-            <span class="text-sm font-normal text-muted">Tugas</span>
+            <span class="text-sm font-normal text-muted">Task</span>
           </p>
         </div>
         <div class="text-right pb-1">

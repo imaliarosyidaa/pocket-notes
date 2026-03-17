@@ -82,8 +82,8 @@ const updateLocalData = (payload: { id: number; body: string }) => {
     }
 
     toast.add({
-      title: "Tersimpan",
-      description: "Perubahan berhasil disimpan ke browser.",
+      title: "Saved",
+      description: "Changes saved!",
       icon: "i-lucide-save",
       color: "success",
     });

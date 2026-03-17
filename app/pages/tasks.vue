@@ -9,7 +9,7 @@ import type { Task } from "~/types";
 
 // 1. DATA PERSISTENCE (LocalStorage)
 // Pastikan interface Task sudah memiliki properti isCompleted: boolean dan parentTaskId: number | null
-const localTodo = useLocalStorage<Task[]>('my-tasks-list', [])
+const localTodo = useLocalStorage<Task[]>("my-tasks-list", []);
 
 const selectedTodo = ref<Task | null>(null);
 const toast = useToast();
@@ -37,7 +37,7 @@ const updateLocalData = (payload: Partial<Task> & { id: number }) => {
     // Update data di array utama (Spread payload agar dinamis bisa update body atau isCompleted)
     localTodo.value[index] = {
       ...localTodo.value[index],
-      ...payload
+      ...payload,
     };
 
     // Sinkronkan state yang sedang terpilih agar detail view di kanan ikut update
@@ -46,7 +46,7 @@ const updateLocalData = (payload: Partial<Task> & { id: number }) => {
     }
 
     toast.add({
-      title: "Berhasil diperbarui",
+      title: "Changes saved!",
       icon: "i-lucide-check-circle",
       color: "success",
     });
@@ -55,7 +55,7 @@ const updateLocalData = (payload: Partial<Task> & { id: number }) => {
 
 // 3. LOGIKA DELETE (Diterima dari emit di TodoList)
 const deleteData = (id: number) => {
-  const index = localTodo.value.findIndex(t => t.id === id);
+  const index = localTodo.value.findIndex((t) => t.id === id);
   if (index !== -1) {
     localTodo.value.splice(index, 1);
     if (selectedTodo.value?.id === id) {
@@ -63,8 +63,8 @@ const deleteData = (id: number) => {
     }
     toast.add({
       title: "Dihapus",
-      description: "Tugas telah dihapus selamanya.",
-      color: "error"
+      description: "Task telah dihapus selamanya.",
+      color: "error",
     });
   }
 };
@@ -98,11 +98,7 @@ watch(
       </template>
     </UDashboardNavbar>
 
-    <TodoList
-      v-model="selectedTodo"
-      :todo="localTodo"
-      @delete="deleteData"
-    />
+    <TodoList v-model="selectedTodo" :todo="localTodo" @delete="deleteData" />
   </UDashboardPanel>
 
   <TodoListContent
@@ -122,7 +118,7 @@ watch(
         name="i-lucide-clipboard-list"
         class="size-16 text-gray-400 mb-4 mx-auto"
       />
-      <p class="text-gray-500 font-medium">Pilih tugas untuk melihat detail</p>
+      <p class="text-gray-500 font-medium">Pilih Task untuk melihat detail</p>
     </div>
   </div>
 

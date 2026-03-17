@@ -32,12 +32,6 @@ const links = [
       to: "/planner",
       onSelect: () => (open.value = false),
     },
-    {
-      label: "Focus Timer",
-      icon: "i-lucide-timer",
-      to: "/timer",
-      onSelect: () => (open.value = false),
-    },
   ],
   [
     {
@@ -139,7 +133,5 @@ onMounted(async () => {
     <UDashboardSearch :groups="groups" />
 
     <slot />
-
-    <NotificationsSlideover />
   </UDashboardGroup>
 </template>

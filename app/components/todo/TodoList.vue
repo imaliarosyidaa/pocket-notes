@@ -45,7 +45,7 @@ defineShortcuts({
 const getDropdownItems = (item: Task) => [
   [
     {
-      label: "Edit Tugas",
+      label: "Edit Task",
       icon: "i-lucide-pencil",
       onSelect: () => emit("edit", item),
     },
@@ -93,7 +93,7 @@ const getDropdownItems = (item: Task) => [
               <span
                 class="font-semibold text-gray-900 dark:text-white truncate"
               >
-                {{ item.taskName || "(Tanpa Nama Tugas)" }}
+                {{ item.taskName || "(Tanpa Nama Task)" }}
               </span>
 
               <UBadge
@@ -118,7 +118,7 @@ const getDropdownItems = (item: Task) => [
                 class="flex items-center gap-1 text-primary italic"
               >
                 <UIcon name="i-lucide-git-merge" class="size-3" />
-                Sub-tugas
+                Sub-Task
               </span>
             </div>
           </div>
@@ -142,9 +142,7 @@ const getDropdownItems = (item: Task) => [
       class="p-12 text-center flex flex-col items-center gap-2"
     >
       <UIcon name="i-lucide-clipboard-check" class="size-10 text-gray-300" />
-      <p class="text-gray-400 italic text-sm">
-        Tidak ada tugas yang ditemukan.
-      </p>
+      <p class="text-gray-400 italic text-sm">Tidak ada Task yang ditemukan.</p>
     </div>
   </div>
 </template>

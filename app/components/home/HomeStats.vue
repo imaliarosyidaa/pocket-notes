@@ -8,12 +8,12 @@ const props = defineProps<{
 }>();
 
 // 1. Ambil data dari localStorage (Key-nya harus sama dengan yang kamu pakai sebelumnya)
-const localTodo = useLocalStorage<Task[]>('my-tasks-list', []);
+const localTodo = useLocalStorage<Task[]>("my-tasks-list", []);
 
 // 2. Hitung statistik secara reaktif
 const stats = computed(() => {
   const total = localTodo.value.length;
-  const completed = localTodo.value.filter(t => t.isCompleted).length;
+  const completed = localTodo.value.filter((t) => t.isCompleted).length;
   const pending = total - completed;
 
   // Hitung persentase penyelesaian untuk variasi (opsional)
@@ -25,17 +25,17 @@ const stats = computed(() => {
       icon: "i-lucide-clipboard-list",
       value: total,
       variation: total, // Kita gunakan total sebagai angka utama
-      description: "Semua tugas tercatat",
-      color: "primary"
+      description: "Semua Task tercatat",
+      color: "primary",
     },
     {
       title: "Completed Tasks",
       icon: "i-lucide-check-circle",
       value: completed,
       variation: completionRate, // Di sini kita tampilkan % penyelesaian
-      description: `${pending} tugas tersisa`,
-      color: "success"
-    }
+      description: `${pending} Task tersisa`,
+      color: "success",
+    },
   ];
 });
 </script>

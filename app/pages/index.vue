@@ -51,17 +51,6 @@ const period = ref<Period>("daily");
         </template>
 
         <template #right>
-          <UTooltip text="Notifications" :shortcuts="['N']">
-            <UButton color="neutral" variant="ghost" square>
-              <UChip color="error" inset>
-                <UIcon name="i-lucide-bell" class="size-5" />
-              </UChip>
-            </UButton>
-          </UTooltip>
-
-          <UDropdownMenu :items="items">
-            <UButton icon="i-lucide-plus" size="md" class="rounded-full" />
-          </UDropdownMenu>
         </template>
       </UDashboardNavbar>
     </template>
@@ -75,7 +64,6 @@ const period = ref<Period>("daily");
 
         <div class="lg:col-span-1">
           <UPageCard>
-
             <UPageCard variant="naked">
               <UCalendar multiple v-model="selectedDate" />
             </UPageCard>
@@ -85,7 +73,7 @@ const period = ref<Period>("daily");
                   class="font-bold text-sm text-gray-500 flex items-center gap-2 uppercase tracking-wider"
                 >
                   <UIcon name="i-lucide-calendar-days" />
-                  Tugas: {{ format(toJSDate(selectedDate), "dd MMM") }}
+                  Task: {{ format(toJSDate(selectedDate), "dd MMM") }}
                 </h3>
               </div>
 
@@ -105,7 +93,7 @@ const period = ref<Period>("daily");
               </div>
 
               <div v-else class="text-center py-8 opacity-40">
-                <p class="text-xs italic">Belum ada tugas di tanggal ini.</p>
+                <p class="text-xs italic">There are no Tasks on this date.</p>
               </div>
             </div>
           </UPageCard>
