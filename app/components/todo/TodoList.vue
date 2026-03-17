@@ -45,14 +45,7 @@ defineShortcuts({
 const getDropdownItems = (item: Task) => [
   [
     {
-      label: "Edit Task",
-      icon: "i-lucide-pencil",
-      onSelect: () => emit("edit", item),
-    },
-  ],
-  [
-    {
-      label: "Hapus",
+      label: "Delete",
       icon: "i-lucide-trash",
       color: "error" as const,
       onSelect: () => {
@@ -142,7 +135,7 @@ const getDropdownItems = (item: Task) => [
       class="p-12 text-center flex flex-col items-center gap-2"
     >
       <UIcon name="i-lucide-clipboard-check" class="size-10 text-gray-300" />
-      <p class="text-gray-400 italic text-sm">Tidak ada Task yang ditemukan.</p>
+      <p class="text-gray-400 italic text-sm">No Tasks found. Add in Study Planner menu</p>
     </div>
   </div>
 </template>

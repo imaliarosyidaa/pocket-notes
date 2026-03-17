@@ -102,8 +102,8 @@ const handleDelete = (id: number) => {
     }
 
     toast.add({
-      title: "Dihapus",
-      description: "Catatan telah dihapus dari storage.",
+      title: "Deleted",
+      description: "The note has been removed",
       icon: "i-lucide-trash",
       color: "error",
     });

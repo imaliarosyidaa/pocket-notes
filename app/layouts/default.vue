@@ -32,6 +32,12 @@ const links = [
       to: "/planner",
       onSelect: () => (open.value = false),
     },
+        {
+      label: "quick notula",
+      icon: "i-lucide-signature",
+      to: "/tools",
+      onSelect: () => (open.value = false),
+    },
   ],
   [
     {

@@ -62,8 +62,8 @@ const deleteData = (id: number) => {
       selectedTodo.value = null;
     }
     toast.add({
-      title: "Dihapus",
-      description: "Task telah dihapus selamanya.",
+      title: "Deleted",
+      description: "The task has been removed",
       color: "error",
     });
   }
@@ -118,7 +118,7 @@ watch(
         name="i-lucide-clipboard-list"
         class="size-16 text-gray-400 mb-4 mx-auto"
       />
-      <p class="text-gray-500 font-medium">Pilih Task untuk melihat detail</p>
+      <p class="text-gray-500 font-medium">Select a Task to view details</p>
     </div>
   </div>
 
