@@ -67,7 +67,7 @@ const stats = computed(() => {
           variant="subtle"
           class="text-xs"
         >
-          {{ stat.variation }}% Selesai
+          {{ stat.variation }}% Done
         </UBadge>
       </div>
     </UPageCard>

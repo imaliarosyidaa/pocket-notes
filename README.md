@@ -11,7 +11,7 @@ java.stis
 
 ## Dengan Backend
 
-Ya
+Tidak
 
 ## Daftar Fitur Utama
 
